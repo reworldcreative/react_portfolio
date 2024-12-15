@@ -6,7 +6,7 @@ import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 
 export default [
-	{ ignores: ['dist'] },
+	{ ignores: ['dist', 'vite.config.js'] },
 
 	{
 		files: ['**/*.{js,jsx}'],
@@ -244,7 +244,7 @@ export default [
 					ignoreCase: false,
 					ignoreDeclarationSort: false,
 					ignoreMemberSort: false,
-					memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
+					memberSyntaxSortOrder: ['all', 'multiple', 'single', 'none'],
 					allowSeparatedGroups: false,
 				},
 			],

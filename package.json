@@ -34,6 +34,8 @@
 		"postcss": "^8.4.38",
 		"postcss-preset-env": "^9.5.13",
 		"postcss-sort-media-queries": "^5.2.0",
+		"sass": "^1.83.0",
+		"sass-embedded": "^1.83.0",
 		"sharp": "^0.33.4",
 		"stylelint": "^16.8.2",
 		"stylelint-config-standard-scss": "^13.1.0",

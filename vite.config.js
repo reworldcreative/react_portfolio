@@ -13,7 +13,6 @@ import { resolve } from 'path'
 import svgr from 'vite-plugin-svgr'
 import viteImagemin from 'vite-plugin-imagemin'
 import webfontDL from 'vite-plugin-webfont-dl'
-import FullReload from 'vite-plugin-full-reload'
 import sortMediaQueries from 'postcss-sort-media-queries'
 
 export default defineConfig(({ command, mode }) => {
@@ -31,7 +30,6 @@ export default defineConfig(({ command, mode }) => {
 		},
 		plugins: [
 			react(),
-			// FullReload('./**/*', { delay: 0 }),
 			svgr({
 				// Для підключення svg як ReactComponent
 				svgrOptions: { exportType: 'named', ref: true, svgo: false, titleProp: true },
