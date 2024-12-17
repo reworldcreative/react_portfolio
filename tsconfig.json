@@ -1,0 +1,40 @@
+{
+	"compilerOptions": {
+		"target": "ES2020",
+		"useDefineForClassFields": true,
+		"lib": ["ES2020", "DOM", "DOM.Iterable"],
+		"module": "ESNext",
+		"skipLibCheck": true,
+		"noImplicitAny": false,
+		"noImplicitReturns": true,
+		"forceConsistentCasingInFileNames": true,
+
+		/* Bundler mode */
+		"moduleResolution": "bundler",
+		"allowImportingTsExtensions": true,
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"noEmit": true,
+		"jsx": "react-jsx",
+		"moduleDetection": "force",
+
+		/* Linting */
+		"strict": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noFallthroughCasesInSwitch": true,
+		"baseUrl": "./",
+		"paths": {
+			"@/*": ["./src/*"],
+			"@media": ["./src/styles/mixins/media.scss"],
+			"@fontStyle": ["./src/styles/mixins/fontStyle.scss"],
+			"@images/*": ["./public/images/*"],
+			"@icons/*": ["./public/icons/*"],
+			"@svg/*": ["./public/svg/*"],
+			"@sprites/*": ["./public/sprites/*"]
+		}
+	},
+	"files": [],
+	"include": ["src", "src/vite-env.d.ts", "./eslint.config.js", "./vite.config.js"],
+	"references": [{ "path": "./tsconfig.node.json" }]
+}

@@ -4,20 +4,25 @@ import jsxA11y from 'eslint-plugin-jsx-a11y'
 import react from 'eslint-plugin-react'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
+import tsParser from '@typescript-eslint/parser'
+import tsPlugin from '@typescript-eslint/eslint-plugin'
+import tseslint from 'typescript-eslint'
 
 export default [
-	{ ignores: ['dist', 'vite.config.js'] },
+	{ ignores: ['dist', 'vite.config.js', 'eslint.config.js'] },
 
 	{
-		files: ['**/*.{js,jsx}'],
+		files: ['**/*.{js,jsx,ts,tsx}'],
 		languageOptions: {
 			ecmaVersion: 2020,
+			parser: tsParser,
 			globals: globals.browser,
 			...jsxA11y.flatConfigs.recommended.languageOptions,
 			parserOptions: {
 				ecmaVersion: 'latest',
 				ecmaFeatures: { jsx: true },
 				sourceType: 'module',
+				project: './tsconfig.json',
 			},
 		},
 		settings: { react: { version: '18.3' } },
@@ -26,6 +31,9 @@ export default [
 			'react-hooks': reactHooks,
 			'react-refresh': reactRefresh,
 			'jsx-a11y': jsxA11y,
+			'@typescript-eslint': tsPlugin,
+			'@typescript-eslint/stylistic': tsPlugin,
+			'@typescript-eslint/strict-type-checked': tsPlugin,
 		},
 		rules: {
 			...js.configs.recommended.rules,
@@ -33,6 +41,7 @@ export default [
 			...react.configs['jsx-runtime'].rules,
 			...reactHooks.configs.recommended.rules,
 			...jsxA11y.flatConfigs.recommended.rules,
+			...tseslint.configs.recommended.rules,
 			'react-hooks/rules-of-hooks': 'error',
 			'react-hooks/exhaustive-deps': 'warn',
 			'react/jsx-no-target-blank': [
@@ -83,7 +92,10 @@ export default [
 				},
 			],
 			'react/jsx-equals-spacing': ['warn', 'never'],
-			'react/jsx-filename-extension': ['warn', { allow: 'as-needed', ignoreFilesWithoutCode: true }],
+			'react/jsx-filename-extension': [
+				'warn',
+				{ allow: 'as-needed', extensions: ['.jsx', '.tsx'], ignoreFilesWithoutCode: true },
+			],
 			'react/jsx-first-prop-new-line': ['warn', 'multiline-multiprop'],
 			'react/jsx-fragments': ['warn', 'syntax'],
 			'react/jsx-handler-names': [
@@ -238,18 +250,150 @@ export default [
 			'no-console': 'warn',
 			'no-var': 'error',
 			'prefer-const': 'error',
-			'sort-imports': [
-				'error',
-				{
-					ignoreCase: false,
-					ignoreDeclarationSort: false,
-					ignoreMemberSort: false,
-					memberSyntaxSortOrder: ['all', 'multiple', 'single', 'none'],
-					allowSeparatedGroups: false,
-				},
-			],
+			// 'sort-imports': [
+			// 	'error',
+			// 	{
+			// 		ignoreCase: false,
+			// 		ignoreDeclarationSort: false,
+			// 		ignoreMemberSort: false,
+			// 		memberSyntaxSortOrder: ['all', 'multiple', 'single', 'none'],
+			// 		allowSeparatedGroups: false,
+			// 	},
+			// ],
 			'sort-vars': 'error',
 			'vars-on-top': 'error',
+
+			//TS
+			'@typescript-eslint/array-type': 'warn',
+			'@typescript-eslint/await-thenable': 'error',
+			'@typescript-eslint/consistent-generic-constructors': 'warn',
+			'@typescript-eslint/explicit-function-return-type': [
+				'error',
+				{
+					allowFunctionsWithoutTypeParameters: true,
+				},
+			],
+			'@typescript-eslint/init-declarations': 'warn',
+			'@typescript-eslint/no-base-to-string': 'warn',
+			'@typescript-eslint/no-confusing-non-null-assertion': 'error',
+			// '@typescript-eslint/no-confusing-void-expression': 'error',
+			'@typescript-eslint/no-confusing-void-expression': [
+				'error',
+				{ ignoreArrowShorthand: true, ignoreVoidOperator: true },
+			],
+			'@typescript-eslint/no-dupe-class-members': 'error',
+			'@typescript-eslint/no-duplicate-enum-values': 'warn',
+			'@typescript-eslint/no-duplicate-type-constituents': 'error',
+			'@typescript-eslint/no-dynamic-delete': 'warn',
+			'@typescript-eslint/no-empty-interface': 'error',
+			'@typescript-eslint/no-explicit-any': 'error',
+			'@typescript-eslint/no-extra-non-null-assertion': 'error',
+			'@typescript-eslint/no-extraneous-class': 'warn',
+			'@typescript-eslint/no-floating-promises': 'error',
+			'@typescript-eslint/no-for-in-array': 'warn',
+			'@typescript-eslint/no-implied-eval': 'error',
+			'@typescript-eslint/no-import-type-side-effects': 'warn',
+			'@typescript-eslint/no-meaningless-void-operator': 'error',
+			'@typescript-eslint/no-mixed-enums': 'warn',
+			'@typescript-eslint/no-non-null-asserted-nullish-coalescing': 'error',
+			'@typescript-eslint/no-non-null-asserted-optional-chain': 'error',
+			'@typescript-eslint/no-non-null-assertion': 'warn',
+			'@typescript-eslint/no-require-imports': 'warn',
+			'@typescript-eslint/no-unnecessary-boolean-literal-compare': 'error',
+			'@typescript-eslint/no-unnecessary-condition': 'error',
+			'@typescript-eslint/no-unnecessary-parameter-property-assignment': 'error',
+			'@typescript-eslint/no-unnecessary-qualifier': 'error',
+			'@typescript-eslint/no-unnecessary-template-expression': 'error',
+			'@typescript-eslint/no-unsafe-argument': 'warn',
+			'@typescript-eslint/no-unsafe-assignment': 'warn',
+			'@typescript-eslint/no-unsafe-call': 'warn',
+			'@typescript-eslint/no-unsafe-enum-comparison': 'error',
+			'@typescript-eslint/no-unsafe-function-type': 'error',
+			'@typescript-eslint/no-unsafe-return': 'error',
+			'@typescript-eslint/no-unsafe-unary-minus': 'error',
+			'@typescript-eslint/no-useless-empty-export': 'error',
+			'@typescript-eslint/no-wrapper-object-types': 'warn',
+			'@typescript-eslint/prefer-enum-initializers': 'warn',
+			'@typescript-eslint/prefer-optional-chain': 'warn',
+			'@typescript-eslint/promise-function-async': 'error',
+			'@typescript-eslint/prefer-for-of': 'warn',
+			'@typescript-eslint/restrict-template-expressions': 'error',
+			'@typescript-eslint/unified-signatures': 'error',
+			'@typescript-eslint/no-misused-promises': [
+				'error',
+				{
+					checksSpreads: true,
+					checksConditionals: true,
+					checksVoidReturn: false,
+				},
+			],
+			'@typescript-eslint/max-params': [
+				'warn',
+				{
+					countVoidThis: true,
+					max: 5,
+				},
+			],
+			'@typescript-eslint/consistent-type-exports': [
+				'warn',
+				{
+					fixMixedExportsWithInlineTypeSpecifier: true,
+				},
+			],
+			// '@typescript-eslint/naming-convention': [
+			// 	'error',
+			// 	{
+			// 		selector: 'default',
+			// 		format: ['camelCase', 'PascalCase'],
+			// 	},
+			// 	{
+			// 		selector: 'variable',
+			// 		format: ['camelCase', 'UPPER_CASE'],
+			// 		leadingUnderscore: 'allow',
+			// 	},
+			// 	{
+			// 		selector: 'variable',
+			// 		modifiers: ['const'],
+			// 		types: ['boolean', 'string', 'number', 'array'],
+			// 		format: ['UPPER_CASE'],
+			// 	},
+			// 	{
+			// 		selector: 'variable',
+			// 		format: ['camelCase', 'UPPER_CASE'],
+			// 		modifiers: ['const'],
+			// 		filter: {
+			// 			regex: '^[A-Z]',
+			// 			match: false,
+			// 		},
+			// 	},
+			// 	{
+			// 		selector: 'variable',
+			// 		modifiers: ['const'],
+			// 		types: ['function'],
+			// 		format: ['camelCase', 'PascalCase'],
+			// 	},
+			// 	{
+			// 		selector: 'function',
+			// 		format: ['camelCase'],
+			// 	},
+			// 	{
+			// 		selector: 'typeLike',
+			// 		format: ['PascalCase'],
+			// 	},
+			// 	{
+			// 		selector: 'variable',
+			// 		modifiers: ['const'],
+			// 		format: ['camelCase', 'PascalCase'],
+			// 		filter: {
+			// 			regex: '^use[A-Z]|^is|^set[A-Z]',
+			// 			match: true,
+			// 		},
+			// 	},
+			// 	{
+			// 		selector: 'objectLiteralProperty',
+			// 		format: null,
+			// 	},
+			// ],
 		},
 	},
 ]

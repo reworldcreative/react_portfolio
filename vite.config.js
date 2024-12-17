@@ -119,17 +119,22 @@ export default defineConfig(({ command, mode }) => {
 				plugins: [
 					autoprefixer(), // автоматично додає вендорні префікси до CSS правил, щоб забезпечити сумісність з різними браузерами.
 					postcssPresetEnv(), // використовувати сучасні функції CSS, які ще не включені в стандарті, але вже підтримуються деякими браузерами.
-					PurgeCSS({
-						// видалення невикористаних CSS-стилів
-						content: ['./*.html', './src/**/*.jsx', './src/**/*.js'], // шляхи до файлів, які ви хочете аналізувати на наявність використаного CSS
-						fontFace: true, // видаляти невикористовувані @font-face.
-						keyframes: true, // видаляти невикористовувані анімації keyframes.
-						variables: true, //  видаляти невикористовувані CSS-змінні.
-						rejected: true, // Логує видалені CSS-класи для налагодження.
-						rejectedCss: true, // Створює файл з невикористаними CSS-класами для аналізу.
-					}),
+					// PurgeCSS({
+					// 	// видалення невикористаних CSS-стилів
+					// 	content: ['./*.html', './src/**/*.jsx', './src/**/*.js'], // шляхи до файлів, які ви хочете аналізувати на наявність використаного CSS
+					// 	fontFace: true, // видаляти невикористовувані @font-face.
+					// 	keyframes: true, // видаляти невикористовувані анімації keyframes.
+					// 	variables: true, //  видаляти невикористовувані CSS-змінні.
+					// 	rejected: true, // Логує видалені CSS-класи для налагодження.
+					// 	rejectedCss: true, // Створює файл з невикористаними CSS-класами для аналізу.
+					// }),
 					sortMediaQueries({ sort: 'desktop-first' }),
 				],
+			},
+			preprocessorOptions: {
+				scss: {
+					api: 'modern-compiler',
+				},
 			},
 		},
 		build: {
