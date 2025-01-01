@@ -14,6 +14,7 @@ import svgr from 'vite-plugin-svgr'
 import viteImagemin from 'vite-plugin-imagemin'
 import webfontDL from 'vite-plugin-webfont-dl'
 import sortMediaQueries from 'postcss-sort-media-queries'
+import { TanStackRouterVite } from '@tanstack/router-plugin/vite'
 
 export default defineConfig(({ command, mode }) => {
 	const env = loadEnv(mode, process.cwd())
@@ -30,6 +31,7 @@ export default defineConfig(({ command, mode }) => {
 		},
 		plugins: [
 			react(),
+			TanStackRouterVite(),
 			svgr({
 				// Для підключення svg як ReactComponent
 				svgrOptions: { exportType: 'named', ref: true, svgo: false, titleProp: true },
