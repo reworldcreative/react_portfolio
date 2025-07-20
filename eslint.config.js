@@ -110,7 +110,7 @@ export default [
 				'warn',
 				{ checkFragmentShorthand: true, checkKeyMustBeforeSpread: true, warnOnDuplicates: true },
 			],
-			'react/jsx-max-props-per-line': ['warn', { maximum: { single: 3, multi: 1 } }],
+			'react/jsx-max-props-per-line': ['warn', { maximum: { single: 7, multi: 1 } }],
 			'react/jsx-newline': [
 				'warn',
 				{
@@ -156,6 +156,7 @@ export default [
 					condition: 'parens-new-line',
 				},
 			],
+			'react/jsx-filename-extension': [1, { extensions: ['.jsx', '.tsx'] }],
 			'react/no-access-state-in-setstate': 'error',
 			'react/no-adjacent-inline-elements': 'warn',
 			'react/no-arrow-function-lifecycle': 'error',

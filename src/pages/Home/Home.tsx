@@ -1,14 +1,15 @@
-import reactLogo from './assets/react.svg'
+import reactLogo from '@/assets/react.svg'
 import { useState } from 'react'
 import viteLogo from '/vite.svg'
-import './App.scss'
+import Logo from '@/components/widgets/Logo'
+import './Home.scss'
 
-function App() {
+export default function Home() {
 	const [count, setCount] = useState(0)
 
 	return (
 		<>
-			<div>
+			<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
 				<a href='https://vite.dev' target='_blank' rel='noreferrer'>
 					<img src={viteLogo} className='logo' alt='Vite logo' />
 				</a>
@@ -18,7 +19,8 @@ function App() {
 				</a>
 			</div>
 
-			<h1>Vite + React</h1>
+			<h1>Portfolio</h1>
+			<Logo />
 
 			<div className='card'>
 				<button type='button' onClick={() => setCount(count => count + 1)}>
@@ -34,5 +36,3 @@ function App() {
 		</>
 	)
 }
-
-export default App

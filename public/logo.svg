@@ -1,0 +1,22 @@
+<svg width="35" height="50" viewBox="0 0 35 50" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad-sigma" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4B0082" stop-opacity="1" />
+      <stop offset="100%" stop-color="#00CED1" stop-opacity="1" />
+    </linearGradient>
+
+    <linearGradient id="grad-r" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#DAA520" stop-opacity="1" />
+      <stop offset="50%" stop-color="#FFDB58" stop-opacity="1" />
+      <stop offset="100%" stop-color="#FBEC5D" stop-opacity="1" />
+    </linearGradient>
+  </defs>
+
+  <text x="0" y="50" font-family="'Audiowide', monospace" font-size="60" fill="url(#grad-sigma)">
+    &#x3A3;
+  </text>
+
+  <text x="20" y="52" font-family="'Electrolize', monospace" font-size="38" fill="url(#grad-r)">
+    r
+  </text>
+</svg>

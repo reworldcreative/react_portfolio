@@ -6,7 +6,8 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build",
-		"lint": "eslint .",
+		"lint": "eslint . && stylelint \"**/*.{css,scss,sass,less}\"",
+		"lint:fix": "eslint . --fix && stylelint \"**/*.{css,scss,sass,less}\" --fix",
 		"preview": "vite preview"
 	},
 	"dependencies": {
