@@ -66,6 +66,8 @@
 					"emptyLineBefore": "never",
 					"properties": [
 						"position",
+						"z-index",
+						"display",
 						"top",
 						"right",
 						"bottom",
@@ -81,9 +83,7 @@
 						"justify-self",
 						"-webkit-justify-self",
 						"justify-items",
-						"-webkit-justify-items",
-						"z-index",
-						"display"
+						"-webkit-justify-items"
 					]
 				},
 				{

@@ -1,7 +1,6 @@
 import reactLogo from '@/assets/react.svg'
 import { useState } from 'react'
 import viteLogo from '/vite.svg'
-import Logo from '@/components/widgets/Logo'
 import './Home.scss'
 
 export default function Home() {
@@ -20,7 +19,6 @@ export default function Home() {
 			</div>
 
 			<h1>Portfolio</h1>
-			<Logo />
 
 			<div className='card'>
 				<button type='button' onClick={() => setCount(count => count + 1)}>
