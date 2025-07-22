@@ -2,4 +2,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  &__navigation {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
 }
