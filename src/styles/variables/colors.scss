@@ -1,16 +1,20 @@
 :root {
 	--white: #fff;
 	--primary: #12f7d6;
-	--text: #EDEDED;
-	--accent: #A64AC9;
-	--bg: #251C31;
-	--bg-light: #1A1E23;
-	--grey: #43454d;
-	--brand: #98faec;
+	--text: #FFFAFA;
+	--accent: #C377FF;
+	--purple: #cc3cd3;
+	--purple-dark: #5B0082;
+	--bg: #002137;
+	--grey: #C0C0C0;
+	--brand: #7DF9FF;
 	--black: #1a1e23;
-	--blue: #0c73b8;
-	--blue-light: #28a9e0;
+	--blue: #000080;
+	--blue-medium: #3178E1;
+	--blue-light: #00BFFF;
 	--red: #e54f26;
 	--yellow: #e7a020;
-	--selected: #f28df1;
+	--selected: #FF78B3;
+
+	--text-gradient: linear-gradient(to right, var(--accent) 0%, var(--purple) 49%, var(--blue-light) 51%, var(--blue-medium) 100%);
 }

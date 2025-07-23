@@ -3,11 +3,13 @@ export default function SVGLogo({ isAnimated = false }: { readonly isAnimated?: 
 		<svg width={35} height={50} viewBox='0 0 35 50' xmlns='http://www.w3.org/2000/svg'>
 			<defs>
 				<linearGradient id='grad-sigma' x1='0%' y1='0%' x2='100%' y2='100%'>
-					<stop offset='0%' stopColor='#4B0082' stopOpacity='1'>
-						{Boolean(isAnimated) && <animate attributeName='offset' values='0;1;0' dur='7s' repeatCount='indefinite' />}
+					<stop offset='0%' stopColor='#5B0082' stopOpacity='1'>
+						{Boolean(isAnimated) && (
+							<animate attributeName='offset' values='0;0.3;0' dur='7s' repeatCount='indefinite' />
+						)}
 					</stop>
 
-					<stop offset='30%' stopColor='#7B33C4' stopOpacity='1'>
+					<stop offset='30%' stopColor='#7F00FF' stopOpacity='1'>
 						{Boolean(isAnimated) && (
 							<animate attributeName='offset' values='0.2;1;0.2' dur='7s' repeatCount='indefinite' />
 						)}

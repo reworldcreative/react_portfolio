@@ -15,15 +15,19 @@
 
 a {
 	font-weight: var(--font-medium);
-	color: var(--blue-light);
+	color: transparent;
 	text-decoration: inherit;
-	transition: color 0.2s ease-in-out;
+	background: var(--text-gradient);
+	background-position: right center;
+	background-size: 200% 100%;
+	-webkit-background-clip: text;
+	background-clip: text;
+	transition: background-position 0.3s ease-in-out;
+	-webkit-text-fill-color: transparent;
 
-	&.no-animated {
-		@media (hover: hover) {
-			&:hover {
-				color: var(--accent);
-			}
+	@media (hover: hover) {
+		&:hover {
+			background-position: left center;
 		}
 	}
 }
@@ -39,6 +43,12 @@ body {
 	&::selection {
 		color: var(--white);
 		background-color: var(--selected);
+	}
+
+	@media (prefers-color-scheme: dark) {
+		&::selection {
+			background-color: var(--blue);
+		}
 	}
 }
 
@@ -72,6 +82,6 @@ button:focus-visible {
 @media (prefers-color-scheme: light) {
 	:root {
 		color: var(--text);
-		background-color: var(--bg-light);
+		background-color: var(--bg);
 	}
 }
