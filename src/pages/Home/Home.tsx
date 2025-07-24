@@ -1,14 +1,27 @@
 import reactLogo from '@/assets/react.svg'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import viteLogo from '/vite.svg'
 import './Home.scss'
+import { boxRevealAnimation } from '@/components/animations/BoxReveal'
 
 export default function Home() {
 	const [count, setCount] = useState(0)
+	const boxRef = useRef<HTMLDivElement | null>(null)
+
+	useEffect(() => {
+		if (boxRef.current) {
+			boxRevealAnimation({
+				elements: [boxRef.current],
+				container: boxRef.current,
+				duration: 3,
+				immediate: false,
+			})
+		}
+	}, [])
 
 	return (
 		<>
-			<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+			<div ref={boxRef} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
 				<a href='https://vite.dev' target='_blank' rel='noreferrer'>
 					<img src={viteLogo} className='logo' alt='Vite logo' />
 				</a>

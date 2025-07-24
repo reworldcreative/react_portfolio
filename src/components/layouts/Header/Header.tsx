@@ -37,11 +37,13 @@ export default function Header() {
 
 	return (
 		<header className='header'>
-			<Link to='/' ref={logoRef}>
-				<Logo isAnimated />
-			</Link>
+			<div className='header__wrapper'>
+				<Link to='/' ref={logoRef}>
+					<Logo isAnimated />
+				</Link>
 
-			<HeaderNavigation />
+				<HeaderNavigation />
+			</div>
 		</header>
 	)
 }

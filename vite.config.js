@@ -100,21 +100,21 @@ export default defineConfig(({ command, mode }) => {
 				},
 			}),
 			env.VITE_FAVICONS === 'favicons' &&
-				ViteFaviconsPlugin({
-					logo: './src/assets/react.svg', // шлях до вихідного зображення, яке буде використане для генерації favicon.
-					// outputPath: "./favicons/",
-					favicons: {
-						appName: 'Material Landing', // Назва веб-сайту або додатку
-						icons: {
-							android: true, // Генерує іконку для Android-пристроїв.
-							appleIcon: true, // Генерує іконку для пристроїв Apple.
-							appleStartup: true, // Генерує іконку для стартового екрана на пристроях Apple.
-							favicons: true, // Генерує стандартні favicon для браузерів.
-							windows: true, // Генерує іконку для пристроїв Windows.
-							yandex: false, // Відключає генерацію іконок для сервісу Yandex.
-						},
+			ViteFaviconsPlugin({
+				logo: './src/assets/react.svg', // шлях до вихідного зображення, яке буде використане для генерації favicon.
+				// outputPath: "./favicons/",
+				favicons: {
+					appName: 'Material Landing', // Назва веб-сайту або додатку
+					icons: {
+						android: true, // Генерує іконку для Android-пристроїв.
+						appleIcon: true, // Генерує іконку для пристроїв Apple.
+						appleStartup: true, // Генерує іконку для стартового екрана на пристроях Apple.
+						favicons: true, // Генерує стандартні favicon для браузерів.
+						windows: true, // Генерує іконку для пристроїв Windows.
+						yandex: false, // Відключає генерацію іконок для сервісу Yandex.
 					},
-				}),
+				},
+			}),
 		],
 		css: {
 			postcss: {
@@ -136,6 +136,7 @@ export default defineConfig(({ command, mode }) => {
 			preprocessorOptions: {
 				scss: {
 					api: 'modern-compiler',
+					additionalData: `@use "@/styles/global" as *;`,
 				},
 			},
 		},

@@ -40,7 +40,13 @@ export default function HeaderNavigation() {
 	return (
 		<nav className='header__navigation' ref={navRef}>
 			{['Home', 'About', 'Skills', 'Projects'].map((text, i) => (
-				<Link to='/' key={text} ref={el => (linkRefs.current[i] = el)} style={{ opacity: 0 }}>
+				<Link
+					to='/'
+					className='header__navigation-link'
+					key={text}
+					ref={el => (linkRefs.current[i] = el)}
+					style={{ opacity: 0 }}
+				>
 					{text}
 				</Link>
 			))}

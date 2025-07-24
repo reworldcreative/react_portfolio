@@ -7,7 +7,7 @@ export const Route = createRootRoute({
 		<>
 			<Header />
 
-			<main>
+			<main className='main'>
 				<Outlet />
 			</main>
 
